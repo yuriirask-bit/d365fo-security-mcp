@@ -1,0 +1,82 @@
+[
+  {
+    "UserID": "admin",
+    "UserName": "admin",
+    "PersonName": "Administrator",
+    "Email": "admin@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "jsmith",
+    "UserName": "jsmith",
+    "PersonName": "John Smith",
+    "Email": "jsmith@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "aclerk",
+    "UserName": "aclerk",
+    "PersonName": "Alice Clerk",
+    "Email": "aclerk@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "warehouse1",
+    "UserName": "warehouse1",
+    "PersonName": "Bob Warehouse",
+    "Email": "warehouse1@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "employee1",
+    "UserName": "employee1",
+    "PersonName": "Carol Employee",
+    "Email": "employee1@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "manager1",
+    "UserName": "manager1",
+    "PersonName": "David Manager",
+    "Email": "manager1@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "noroles",
+    "UserName": "noroles",
+    "PersonName": "Eve Noroles",
+    "Email": "noroles@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "svcaccount",
+    "UserName": "svcaccount",
+    "PersonName": "Service Account",
+    "Email": "svcaccount@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "multiuser",
+    "UserName": "multiuser",
+    "PersonName": "Frank Multiuser",
+    "Email": "multiuser@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  },
+  {
+    "UserID": "teamonly",
+    "UserName": "teamonly",
+    "PersonName": "Grace Teamonly",
+    "Email": "teamonly@contoso.com",
+    "Enabled": true,
+    "Company": "USMF"
+  }
+]

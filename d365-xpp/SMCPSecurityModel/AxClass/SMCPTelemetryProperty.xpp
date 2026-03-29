@@ -1,0 +1,36 @@
+/// <summary>
+/// Generic key-value property for Application Insights telemetry.
+/// Allows emitting custom properties without creating a dedicated
+/// subclass for each property name.
+/// </summary>
+public class SMCPTelemetryProperty extends SysApplicationInsightsProperty
+{
+    private str propertyKey;
+
+    /// <summary>
+    /// Creates a new property with the given key and value.
+    /// </summary>
+    /// <param name="_key">Property key (appears in customDimensions).</param>
+    /// <param name="_value">Property value.</param>
+    /// <returns>A new SMCPTelemetryProperty instance.</returns>
+    public static SMCPTelemetryProperty newFromKeyValue(str _key, str _value)
+    {
+        SMCPTelemetryProperty prop = new SMCPTelemetryProperty(_key, _value);
+        return prop;
+    }
+
+    protected void new(str _key, str _value)
+    {
+        propertyKey = _key;
+        super(_value);
+    }
+
+    /// <summary>
+    /// Returns the key and data classification container.
+    /// </summary>
+    /// <returns>Container with [key, dataClassification].</returns>
+    protected container initialize()
+    {
+        return [propertyKey, SysApplicationInsightsComplianceDataType::CustomerContent];
+    }
+}

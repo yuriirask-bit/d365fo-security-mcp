@@ -1,0 +1,36 @@
+{
+  "system_users": [
+    {"UserID": "jsmith", "UserName": "John Smith", "PersonName": "John Smith", "Enabled": true},
+    {"UserID": "aclerk", "UserName": "Alice Clerk", "PersonName": "Alice Clerk", "Enabled": true},
+    {"UserID": "cleanuser", "UserName": "Clean User", "PersonName": "Clean User", "Enabled": true}
+  ],
+  "user_role_assignments": [
+    {"UserId": "jsmith", "SecurityRoleIdentifier": "APClerk", "AssignmentStatus": "Enabled", "SecurityRoleName": "AP Clerk"},
+    {"UserId": "jsmith", "SecurityRoleIdentifier": "PaymentMgr", "AssignmentStatus": "Enabled", "SecurityRoleName": "Payment Manager"},
+    {"UserId": "aclerk", "SecurityRoleIdentifier": "APClerk", "AssignmentStatus": "Enabled", "SecurityRoleName": "AP Clerk"},
+    {"UserId": "cleanuser", "SecurityRoleIdentifier": "Viewer", "AssignmentStatus": "Enabled", "SecurityRoleName": "Viewer"}
+  ],
+  "role_duties": [
+    {"SecurityRoleIdentifier": "APClerk", "SecurityDutyIdentifier": "VendTableMaintain"},
+    {"SecurityRoleIdentifier": "APClerk", "SecurityDutyIdentifier": "PurchOrderMaintain"},
+    {"SecurityRoleIdentifier": "PaymentMgr", "SecurityDutyIdentifier": "VendPaymProposalApprove"},
+    {"SecurityRoleIdentifier": "PaymentMgr", "SecurityDutyIdentifier": "LedgerJournalizeTransactionPost"},
+    {"SecurityRoleIdentifier": "Viewer", "SecurityDutyIdentifier": "ViewOnly"}
+  ],
+  "sub_roles": [],
+  "sod_rules": {
+    "version": "1.0",
+    "metadata": {"name": "Test Rules", "version": "1.0"},
+    "rules": [
+      {
+        "id": "SOD-AP-001",
+        "name": "Vendor Maintenance vs Payment Approval",
+        "category": "accounts_payable",
+        "risk_level": "Critical",
+        "description": "User can create vendors and approve payments",
+        "duty_group_a": {"name": "Maintain vendors", "duties": ["VendTableMaintain"]},
+        "duty_group_b": {"name": "Approve payments", "duties": ["VendPaymProposalApprove", "LedgerJournalizeTransactionPost"]}
+      }
+    ]
+  }
+}

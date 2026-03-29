@@ -1,0 +1,93 @@
+[
+  {
+    "UserId": "admin",
+    "SecurityRoleIdentifier": "SYSADMIN",
+    "SecurityRoleName": "System Administrator",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "jsmith",
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "jsmith",
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityRoleName": "Budget clerk",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "aclerk",
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityRoleName": "Budget clerk",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "warehouse1",
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityRoleName": "Warehouse worker",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "employee1",
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "manager1",
+    "SecurityRoleIdentifier": "HCMSELFSERVICEMANAGER",
+    "SecurityRoleName": "Manager self service",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "manager1",
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "svcaccount",
+    "SecurityRoleIdentifier": "SYSTEMUSER",
+    "SecurityRoleName": "System user",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "multiuser",
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "multiuser",
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityRoleName": "Warehouse worker",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "multiuser",
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  },
+  {
+    "UserId": "teamonly",
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "AssignmentStatus": "Active",
+    "AssignmentMode": "Direct"
+  }
+]

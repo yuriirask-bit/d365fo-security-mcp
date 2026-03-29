@@ -1,0 +1,156 @@
+[
+  {
+    "SecurityRoleIdentifier": "SYSADMIN",
+    "SecurityRoleName": "System Administrator",
+    "Description": "Full system administration access including all modules and configuration.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "Yes"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "Description": "Maintains accounting records and performs financial transactions in the general ledger.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTSUPERVISOR",
+    "SecurityRoleName": "Accounting supervisor",
+    "Description": "Reviews and approves accounting entries and oversees financial close activities.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "Yes"
+  },
+  {
+    "SecurityRoleIdentifier": "VENDPAYMENTCLERK",
+    "SecurityRoleName": "Vendor payment clerk",
+    "Description": "Processes vendor invoices and initiates vendor payment runs.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "CUSTINVOICEACCOUNTS",
+    "SecurityRoleName": "Accounts receivable clerk",
+    "Description": "Manages customer invoices, credit notes, and customer account reconciliation.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "PROJPROJECTMANAGER",
+    "SecurityRoleName": "Project manager",
+    "Description": "Creates and manages projects, tracks time, expenses, and project billing.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "ASSETACCOUNTANT",
+    "SecurityRoleName": "Fixed assets accountant",
+    "Description": "Manages fixed asset acquisitions, depreciation, and disposals.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityRoleName": "Budget clerk",
+    "Description": "Enters and maintains budget register entries and budget plans.",
+    "UserLicenseType": "Activity",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityRoleName": "Warehouse worker",
+    "Description": "Performs warehouse operations including receiving, picking, and shipping.",
+    "UserLicenseType": "Activity",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEMANAGER",
+    "SecurityRoleName": "Warehouse manager",
+    "Description": "Manages warehouse operations, locations, and replenishment processes.",
+    "UserLicenseType": "Activity",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "INVENTINVENTORYCOUNTCLERK",
+    "SecurityRoleName": "Inventory counting clerk",
+    "Description": "Performs physical inventory counts and adjustments.",
+    "UserLicenseType": "Activity",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "RETAILSTOREASSOCIATE",
+    "SecurityRoleName": "Retail store associate",
+    "Description": "Operates the point of sale terminal and processes retail transactions.",
+    "UserLicenseType": "Activity",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "Description": "Standard employee self-service access for personal HR and payroll information.",
+    "UserLicenseType": "Universal",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMSELFSERVICEMANAGER",
+    "SecurityRoleName": "Manager self service",
+    "Description": "Manager self-service access for team HR actions, absence approvals, and reporting.",
+    "UserLicenseType": "Universal",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMHRDIRECTOR",
+    "SecurityRoleName": "Human resources director",
+    "Description": "Oversees HR operations, compensation plans, and workforce analytics.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "Yes"
+  },
+  {
+    "SecurityRoleIdentifier": "RETAILCATALOGMANAGER",
+    "SecurityRoleName": "Retail catalog manager",
+    "Description": "Manages product catalogs, assortments, and pricing for Commerce channels.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "RETAILCALLCENTERORDERTAKING",
+    "SecurityRoleName": "Call center order taking",
+    "Description": "Processes customer orders via call center channel in Commerce.",
+    "UserLicenseType": "Activity",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "SYSTEMUSER",
+    "SecurityRoleName": "System user",
+    "Description": "Baseline role assigned to all users providing minimal system access.",
+    "UserLicenseType": "None",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "EXPENSECOPILOTAUTOMATIONROLE",
+    "SecurityRoleName": "Expense Copilot automation role",
+    "Description": "Service account role for Expense Copilot AI automation workflows.",
+    "UserLicenseType": "None",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "ITSERVICEACCOUNT",
+    "SecurityRoleName": "IT service account",
+    "Description": "Non-interactive service account role for integration and batch processing.",
+    "UserLicenseType": "None",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "SUPPLYPLANNINGCLERK",
+    "SecurityRoleName": "Supply planning clerk",
+    "Description": "Manages supply chain master planning runs and planned orders in SCM.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  },
+  {
+    "SecurityRoleIdentifier": "PURCHPURCHASINGAGENT",
+    "SecurityRoleName": "Purchasing agent",
+    "Description": "Creates and manages purchase orders and vendor relationships in SCM.",
+    "UserLicenseType": "Enterprise",
+    "AccessToSensitiveData": "No"
+  }
+]

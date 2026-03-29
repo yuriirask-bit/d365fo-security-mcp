@@ -1,0 +1,57 @@
+# Environment & secrets
+.env
+.env.*
+*.pem
+credentials.json
+.claude/mcp.json
+.claude/settings.local.json
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+dist/
+*.tgz
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build
+bin/
+obj/
+dist/
+build/
+
+# Logs
+*.log
+
+# Local idea specs
+*ideaspec*
+idea-spec-*
+issue-spec-*
+
+# Production SoD rulesets (proprietary — keep outside repo)
+rulesets/
+
+# Draft working files
+.draft-d365fo-security-mcp/
+
+# X++ development notes (local only)
+d365-xpp/_xppnotes.txt

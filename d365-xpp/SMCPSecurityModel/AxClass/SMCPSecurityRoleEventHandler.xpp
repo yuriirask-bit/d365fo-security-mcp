@@ -1,0 +1,135 @@
+/// <summary>
+/// SMCPSecurityRoleEventHandler — Emits security role change telemetry to Application Insights.
+///
+/// Subscribes to Inserted and Deleted data events on the SecurityUserRole table
+/// and logs custom events (SecurityRoleAssigned / SecurityRoleRevoked) to
+/// App Insights via the .NET Microsoft.ApplicationInsights.TelemetryClient.
+///
+/// Prerequisites:
+///   - "Enable Custom Telemetry + Application Insights" must be enabled
+///     in System administration > Setup > Monitoring and telemetry parameters
+///
+/// The SMCP MCP Server queries these events from App Insights customEvents
+/// table using KQL to provide the security change log tool.
+/// </summary>
+class SMCPSecurityRoleEventHandler
+{
+    /// <summary>
+    /// Fires after a new role assignment is inserted into SecurityUserRole.
+    /// </summary>
+    /// <param name="sender">The SecurityUserRole record that was inserted.</param>
+    /// <param name="e">Data event arguments.</param>
+    [DataEventHandler(tableStr(SecurityUserRole), DataEventType::Inserted)]
+    public static void onRoleAssigned(Common sender, DataEventArgs e)
+    {
+        SecurityUserRole roleAssignment = sender as SecurityUserRole;
+
+        if (roleAssignment)
+        {
+            SMCPSecurityRoleEventHandler::logRoleChangeEvent(
+                'SecurityRoleAssigned',
+                roleAssignment.User,
+                roleAssignment.SecurityRole,
+                SMCPSecurityRoleEventHandler::getRoleName(roleAssignment.SecurityRole)
+            );
+        }
+    }
+
+    /// <summary>
+    /// Fires after a role assignment is deleted from SecurityUserRole.
+    /// </summary>
+    /// <param name="sender">The SecurityUserRole record that was deleted.</param>
+    /// <param name="e">Data event arguments.</param>
+    [DataEventHandler(tableStr(SecurityUserRole), DataEventType::Deleted)]
+    public static void onRoleRemoved(Common sender, DataEventArgs e)
+    {
+        SecurityUserRole roleAssignment = sender as SecurityUserRole;
+
+        if (roleAssignment)
+        {
+            SMCPSecurityRoleEventHandler::logRoleChangeEvent(
+                'SecurityRoleRevoked',
+                roleAssignment.User,
+                roleAssignment.SecurityRole,
+                SMCPSecurityRoleEventHandler::getRoleName(roleAssignment.SecurityRole)
+            );
+        }
+    }
+
+    /// <summary>
+    /// Emits a custom event to Application Insights with role change details.
+    /// Uses the .NET Microsoft.ApplicationInsights API directly for full
+    /// control over custom properties (customDimensions in App Insights).
+    /// Events land in the customEvents table.
+    /// </summary>
+    /// <param name="_eventName">Event name (SecurityRoleAssigned or SecurityRoleRevoked).</param>
+    /// <param name="_userId">The affected user ID.</param>
+    /// <param name="_securityRoleRecId">RecId of the SecurityRole record.</param>
+    /// <param name="_roleName">Display name of the security role.</param>
+    private static void logRoleChangeEvent(
+        str         _eventName,
+        UserId      _userId,
+        RecId       _securityRoleRecId,
+        Name        _roleName)
+    {
+        // Catch ALL exceptions — .NET CLR exceptions require catch(Exception::CLRError)
+        try
+        {
+            str roleAotName = SMCPSecurityRoleEventHandler::getRoleAotName(_securityRoleRecId);
+
+            // Use the official SysApplicationInsightsTelemetryLogger framework
+            // addProperty() expects SysApplicationInsightsProperty objects
+            SysApplicationInsightsEventTelemetry eventTelemetry =
+                SysApplicationInsightsEventTelemetry::newFromEventIdName(_eventName, _eventName);
+
+            eventTelemetry.addProperty(SMCPTelemetryProperty::newFromKeyValue('UserId', _userId));
+            eventTelemetry.addProperty(SMCPTelemetryProperty::newFromKeyValue('SecurityRoleId', roleAotName));
+            eventTelemetry.addProperty(SMCPTelemetryProperty::newFromKeyValue('SecurityRoleName', _roleName));
+            eventTelemetry.addProperty(SMCPTelemetryProperty::newFromKeyValue('ChangedBy', curUserId()));
+
+            SysApplicationInsightsTelemetryLogger::instance().trackEvent(eventTelemetry);
+        }
+        catch (Exception::CLRError)
+        {
+            CLRInterop::getLastException();
+        }
+        catch (Exception::Error)
+        {
+            // X++ error — swallow
+        }
+        catch
+        {
+            // Any other exception — swallow
+        }
+    }
+
+    /// <summary>
+    /// Resolves a SecurityRole RecId to its display name.
+    /// </summary>
+    /// <param name="_roleRecId">RecId of the SecurityRole record.</param>
+    /// <returns>The role display name, or empty string if not found.</returns>
+    private static Name getRoleName(RecId _roleRecId)
+    {
+        SecurityRole securityRole;
+
+        select firstonly Name from securityRole
+            where securityRole.RecId == _roleRecId;
+
+        return securityRole.Name;
+    }
+
+    /// <summary>
+    /// Resolves a SecurityRole RecId to its AOT name (identifier).
+    /// </summary>
+    /// <param name="_roleRecId">RecId of the SecurityRole record.</param>
+    /// <returns>The role AOT name, or empty string if not found.</returns>
+    private static str getRoleAotName(RecId _roleRecId)
+    {
+        SecurityRole securityRole;
+
+        select firstonly AotName from securityRole
+            where securityRole.RecId == _roleRecId;
+
+        return securityRole.AotName;
+    }
+}

@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "metadata": {
+    "name": "Sample SoD Ruleset",
+    "description": "Example ruleset for demonstration purposes. Replace with your production ruleset.",
+    "author": "SMCP Project",
+    "created": "2026-03-24"
+  },
+  "privileged_roles": [
+    "-SYSADMIN-",
+    "SYSTEMADMINISTRATOR",
+    "SECURITYADMINISTRATOR"
+  ],
+  "rules": [
+    {
+      "id": "SOD-AP-001",
+      "name": "Vendor Maintenance vs Payment Approval",
+      "category": "accounts_payable",
+      "risk_level": "Critical",
+      "description": "A user who can create or modify vendor records should not also be able to approve payments to those vendors. This creates a risk of fraudulent payments to fictitious vendors.",
+      "duty_group_a": {
+        "name": "Maintain vendor master",
+        "duties": ["VendTableMaintain"]
+      },
+      "duty_group_b": {
+        "name": "Approve vendor payments",
+        "duties": ["VendPaymProposalApprove", "LedgerJournalizeTransactionPost"]
+      }
+    },
+    {
+      "id": "SOD-AP-002",
+      "name": "Purchase Order Creation vs Approval",
+      "category": "accounts_payable",
+      "risk_level": "High",
+      "description": "A user who creates purchase orders should not also approve them. Separation prevents unauthorised procurement.",
+      "duty_group_a": {
+        "name": "Create purchase orders",
+        "duties": ["PurchOrderMaintain"]
+      },
+      "duty_group_b": {
+        "name": "Approve purchase orders",
+        "duties": ["PurchOrderApprove"]
+      }
+    },
+    {
+      "id": "SOD-GL-001",
+      "name": "Journal Entry vs Journal Approval",
+      "category": "general_ledger",
+      "risk_level": "Critical",
+      "description": "A user who maintains general ledger journals should not also approve or post them. This prevents undetected manipulation of financial records.",
+      "duty_group_a": {
+        "name": "Maintain GL journals",
+        "duties": ["LedgerJournalMaintain"]
+      },
+      "duty_group_b": {
+        "name": "Post/approve GL journals",
+        "duties": ["LedgerJournalApprove", "LedgerJournalPost"]
+      }
+    },
+    {
+      "id": "SOD-AR-001",
+      "name": "Customer Maintenance vs Payment Application",
+      "category": "accounts_receivable",
+      "risk_level": "High",
+      "description": "A user who maintains customer records should not also apply customer payments. This prevents misappropriation of incoming payments.",
+      "duty_group_a": {
+        "name": "Maintain customer master",
+        "duties": ["CustTableMaintain"]
+      },
+      "duty_group_b": {
+        "name": "Apply customer payments",
+        "duties": ["CustPaymMaintain"]
+      }
+    },
+    {
+      "id": "SOD-CB-001",
+      "name": "Bank Account Maintenance vs Reconciliation",
+      "category": "cash_bank_management",
+      "risk_level": "High",
+      "description": "A user who maintains bank account records should not also perform bank reconciliation. This prevents concealment of unauthorised transactions.",
+      "duty_group_a": {
+        "name": "Maintain bank accounts",
+        "duties": ["BankAccountTableMaintain"]
+      },
+      "duty_group_b": {
+        "name": "Perform bank reconciliation",
+        "duties": ["BankReconciliationMaintain"]
+      }
+    }
+  ]
+}

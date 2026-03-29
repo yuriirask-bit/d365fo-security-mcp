@@ -1,0 +1,77 @@
+[
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityPrivilegeIdentifier": "LedgerJournalTableMaintain",
+    "SecurityPrivilegeName": "Maintain general journal table"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityPrivilegeIdentifier": "LedgerJournalTransView",
+    "SecurityPrivilegeName": "View general journal transactions"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityPrivilegeIdentifier": "BankReconciliationMaintain",
+    "SecurityPrivilegeName": "Maintain bank reconciliation worksheets"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityPrivilegeIdentifier": "BankStatementView",
+    "SecurityPrivilegeName": "View bank statements"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityPrivilegeIdentifier": "LedgerTrialBalanceView",
+    "SecurityPrivilegeName": "View trial balance report"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityPrivilegeIdentifier": "LedgerMainAccountMaintain",
+    "SecurityPrivilegeName": "Maintain main account records"
+  },
+  {
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityPrivilegeIdentifier": "BudgetTransactionMaintain",
+    "SecurityPrivilegeName": "Maintain budget transactions"
+  },
+  {
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityPrivilegeIdentifier": "BudgetRegisterEntryView",
+    "SecurityPrivilegeName": "View budget register entries"
+  },
+  {
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityPrivilegeIdentifier": "BudgetPlanView",
+    "SecurityPrivilegeName": "View budget plan details"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityPrivilegeIdentifier": "WHSWorkCreateAndClose",
+    "SecurityPrivilegeName": "Create and close warehouse work"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityPrivilegeIdentifier": "WHSMobileDeviceView",
+    "SecurityPrivilegeName": "Access warehouse mobile device menu"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityPrivilegeIdentifier": "InventTransferOrderReceive",
+    "SecurityPrivilegeName": "Receive transfer order shipments"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityPrivilegeIdentifier": "HcmWorkerPersonalInfoMaintain",
+    "SecurityPrivilegeName": "Maintain worker personal information"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityPrivilegeIdentifier": "HcmAbsenceRequestCreate",
+    "SecurityPrivilegeName": "Create and submit absence requests"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityPrivilegeIdentifier": "HcmPayslipView",
+    "SecurityPrivilegeName": "View own payslips"
+  }
+]

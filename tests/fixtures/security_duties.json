@@ -1,0 +1,62 @@
+[
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "SecurityDutyIdentifier": "LedgerJournalsMaintain",
+    "SecurityDutyName": "Maintain general journals"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "SecurityDutyIdentifier": "LedgerBankReconciliationMaintain",
+    "SecurityDutyName": "Maintain bank reconciliation"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "SecurityDutyIdentifier": "LedgerTrialBalanceInquire",
+    "SecurityDutyName": "Inquire into trial balance"
+  },
+  {
+    "SecurityRoleIdentifier": "LEDGERACCOUNTANT",
+    "SecurityRoleName": "Accountant",
+    "SecurityDutyIdentifier": "LedgerChartOfAccountsMaintain",
+    "SecurityDutyName": "Maintain chart of accounts"
+  },
+  {
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityRoleName": "Budget clerk",
+    "SecurityDutyIdentifier": "BudgetBudgetRegisterEntriesMaintain",
+    "SecurityDutyName": "Maintain budget register entries"
+  },
+  {
+    "SecurityRoleIdentifier": "BUDGETBUDGETCLERK",
+    "SecurityRoleName": "Budget clerk",
+    "SecurityDutyIdentifier": "BudgetBudgetPlanInquire",
+    "SecurityDutyName": "Inquire into budget plans"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityRoleName": "Warehouse worker",
+    "SecurityDutyIdentifier": "WHSWarehouseWorkMaintain",
+    "SecurityDutyName": "Maintain warehouse work"
+  },
+  {
+    "SecurityRoleIdentifier": "WHSWAREHOUSEWORKER",
+    "SecurityRoleName": "Warehouse worker",
+    "SecurityDutyIdentifier": "InventTransferOrderReceive",
+    "SecurityDutyName": "Receive inventory transfer orders"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "SecurityDutyIdentifier": "HcmEmployeeSelfServiceMaintain",
+    "SecurityDutyName": "Maintain employee self-service"
+  },
+  {
+    "SecurityRoleIdentifier": "HCMEMPLOYEE",
+    "SecurityRoleName": "Employee",
+    "SecurityDutyIdentifier": "HcmPayrollInquire",
+    "SecurityDutyName": "Inquire into own payroll information"
+  }
+]

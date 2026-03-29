@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "d365fo-security-mcp"
+version = "0.1.0"
+description = "D365 F&O Security & Licence Intelligence MCP Server (v0.2.1) — exposes security analysis, licence intelligence, and SoD detection as MCP tools consumable by AI agents and Copilots."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Yuriy Raskazov", email = "yuriy@insightaxconsulting.com" },
+]
+keywords = [
+    "d365",
+    "dynamics365",
+    "security",
+    "mcp",
+    "compliance",
+    "sod",
+    "licensing",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+    "fastmcp>=3.1,<4.0",
+    "httpx>=0.27,<1.0",
+    "msal>=1.28,<2.0",
+    "pydantic>=2.0,<3.0",
+    "pydantic-settings>=2.6,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23.6",
+    "pytest-cov>=5.0",
+    "respx>=0.22",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+d365fo-security-mcp = "d365fo_security_mcp.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
