@@ -211,8 +211,9 @@ them depends on how you run the server:
 - **Claude Desktop**: add to `env` block in `%APPDATA%\Claude\claude_desktop_config.json`
 - **Claude Code**: add to `env` block in `.claude/mcp.json`
 - **GitHub Copilot (VS Code)**: add to `github.copilot.chat.mcp.servers` in VS Code `settings.json`, or create a `.vscode/mcp.json` file in the project root
+- **Cursor**: add to `env` block in `.cursor/mcp.json` (project) or `~/.cursor/mcp.json` (global)
 
-> **Important:** MCP clients (Claude Desktop, Claude Code, Copilot) launch the
+> **Important:** MCP clients (Claude Desktop, Claude Code, Copilot, Cursor) launch the
 > server as a subprocess and do **not** read your `.env` file. You must pass
 > all required variables in the client's MCP configuration.
 

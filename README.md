@@ -37,8 +37,8 @@ The server starts on stdio transport (standard MCP protocol).
 
 ### 4. Connect
 
-MCP clients (Claude Desktop, Claude Code, etc.) launch the server as a
-subprocess. Environment variables **must** be passed in the client's MCP
+MCP clients (Claude Desktop, Claude Code, GitHub Copilot, Cursor, etc.) launch
+the server as a subprocess. Environment variables **must** be passed in the client's MCP
 configuration — the server does not inherit your shell environment or read
 `.env` when launched this way.
 
@@ -63,6 +63,47 @@ or `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 ```
 
 **Claude Code** — edit `.claude/mcp.json` in your project root:
+
+```json
+{
+  "mcpServers": {
+    "d365fo-security": {
+      "command": "d365fo-security-mcp",
+      "env": {
+        "D365FO_BASE_URL": "https://your-env.operations.dynamics.com",
+        "D365FO_TENANT_ID": "your-tenant-id",
+        "D365FO_CLIENT_ID": "your-client-id",
+        "D365FO_CLIENT_SECRET": "your-client-secret",
+        "LICENCE_SOURCE": "graph"
+      }
+    }
+  }
+}
+```
+
+**GitHub Copilot (VS Code)** — add to `github.copilot.chat.mcp.servers` in
+your VS Code `settings.json`, or create a `.vscode/mcp.json` file in the
+project root:
+
+```json
+{
+  "servers": {
+    "d365fo-security": {
+      "command": "d365fo-security-mcp",
+      "env": {
+        "D365FO_BASE_URL": "https://your-env.operations.dynamics.com",
+        "D365FO_TENANT_ID": "your-tenant-id",
+        "D365FO_CLIENT_ID": "your-client-id",
+        "D365FO_CLIENT_SECRET": "your-client-secret",
+        "LICENCE_SOURCE": "graph"
+      }
+    }
+  }
+}
+```
+
+**Cursor** — edit `.cursor/mcp.json` in your project root (or
+`~/.cursor/mcp.json` for global configuration):
 
 ```json
 {

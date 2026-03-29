@@ -10,7 +10,7 @@ Set the `SOD_RULES_FILE` environment variable to the path of your ruleset file:
 SOD_RULES_FILE=/path/to/your-sod-rules.json
 ```
 
-Or in your MCP client config (Claude Desktop, Claude Code):
+Or in your MCP client config (Claude Desktop, Claude Code, Copilot, Cursor):
 
 ```json
 {
