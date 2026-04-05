@@ -90,4 +90,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Duty breakdown reflects D365 OData data model: duties and privileges are flat lists, not nested hierarchies
 - Graph provider SKU-to-tier mapping covers common SKUs; custom/uncommon SKUs logged as warnings
 
-[0.1.0]: https://github.com/yuriirask-bit/SMCP/releases/tag/v0.1.0
+[0.1.0]: https://github.com/yuriirask-bit/d365fo-security-mcp/releases/tag/v0.1.0

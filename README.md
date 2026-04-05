@@ -15,8 +15,8 @@ tools consumable by AI agents and copilots.
 ### 1. Install
 
 ```bash
-git clone https://github.com/yuriirask-bit/SMCP.git
-cd SMCP
+git clone https://github.com/yuriirask-bit/d365fo-security-mcp.git
+cd d365fo-security-mcp
 pip install -e ".[dev]"
 ```
 
