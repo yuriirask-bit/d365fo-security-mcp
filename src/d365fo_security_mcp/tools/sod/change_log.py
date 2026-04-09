@@ -33,18 +33,20 @@ _SETUP_GUIDANCE = (
 )
 
 # KQL template — {days_filter} and {user_filter} are injected
+# Perf: time-series filter first, has_any over in, extend customDimensions once
 _CHANGE_LOG_KQL_TEMPLATE = (
     "customEvents"
-    ' | where name in ("SecurityRoleAssigned", "SecurityRoleRevoked")'
     " | where timestamp >= ago({days}d)"
+    ' | where name has_any ("SecurityRoleAssigned", "SecurityRoleRevoked")'
+    " | extend cd = customDimensions"
     "{user_filter}"
     " | project"
     "     timestamp,"
     '     ChangeType = iff(name == "SecurityRoleAssigned", "Added", "Removed"),'
-    "     UserId = tostring(customDimensions.UserId),"
-    "     SecurityRoleId = tostring(customDimensions.SecurityRoleId),"
-    "     SecurityRoleName = tostring(customDimensions.SecurityRoleName),"
-    "     ChangedBy = tostring(customDimensions.ChangedBy)"
+    "     UserId = tostring(cd.UserId),"
+    "     SecurityRoleId = tostring(cd.SecurityRoleId),"
+    "     SecurityRoleName = tostring(cd.SecurityRoleName),"
+    "     ChangedBy = tostring(cd.ChangedBy)"
     " | order by timestamp desc"
 )
 
@@ -55,7 +57,7 @@ def _build_kql(days: int, user_id: str = "") -> str:
     if user_id:
         # KQL string comparison — safe because user_id is filtered
         safe_uid = user_id.replace("'", "\\'")
-        user_filter = f' | where tostring(customDimensions.UserId) == "{safe_uid}"'
+        user_filter = f' | where tostring(cd.UserId) == "{safe_uid}"'
     return _CHANGE_LOG_KQL_TEMPLATE.format(days=days, user_filter=user_filter)
 
 
