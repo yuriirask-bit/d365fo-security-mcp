@@ -48,14 +48,16 @@ minutes for telemetry ingestion, then query App Insights:
 
 ```kusto
 customEvents
-| where name in ("SecurityRoleAssigned", "SecurityRoleRevoked")
+| where timestamp >= ago(7d)
+| where name has_any ("SecurityRoleAssigned", "SecurityRoleRevoked")
+| extend cd = customDimensions
 | order by timestamp desc
 | take 5
 | project timestamp, name,
-    UserId = tostring(customDimensions.UserId),
-    SecurityRoleId = tostring(customDimensions.SecurityRoleId),
-    SecurityRoleName = tostring(customDimensions.SecurityRoleName),
-    ChangedBy = tostring(customDimensions.ChangedBy)
+    UserId = tostring(cd.UserId),
+    SecurityRoleId = tostring(cd.SecurityRoleId),
+    SecurityRoleName = tostring(cd.SecurityRoleName),
+    ChangedBy = tostring(cd.ChangedBy)
 ```
 
 ## Custom Event Properties

@@ -58,17 +58,23 @@ emits telemetry when roles are assigned or revoked.
 
 ```kusto
 customEvents
-| where name in ("SecurityRoleAssigned", "SecurityRoleRevoked")
 | where timestamp >= ago(30d)
+| where name has_any ("SecurityRoleAssigned", "SecurityRoleRevoked")
+| extend cd = customDimensions
 | project
     timestamp,
     ChangeType = iff(name == "SecurityRoleAssigned", "Added", "Removed"),
-    UserId = tostring(customDimensions.UserId),
-    SecurityRoleId = tostring(customDimensions.SecurityRoleId),
-    SecurityRoleName = tostring(customDimensions.SecurityRoleName),
-    ChangedBy = tostring(customDimensions.ChangedBy)
+    UserId = tostring(cd.UserId),
+    SecurityRoleId = tostring(cd.SecurityRoleId),
+    SecurityRoleName = tostring(cd.SecurityRoleName),
+    ChangedBy = tostring(cd.ChangedBy)
 | order by timestamp desc
 ```
+
+> **Performance notes:** The timestamp filter is placed before the name filter
+> to leverage time-series partitioning. `has_any` is used instead of `in` for
+> faster term-index lookups. `customDimensions` is extended once as `cd` to
+> avoid repeated JSON parsing.
 
 ## Source Code
 
@@ -101,7 +107,7 @@ App Insights (wait 2-3 minutes for telemetry to arrive):
 
 ```kusto
 customEvents
-| where name in ("SecurityRoleAssigned", "SecurityRoleRevoked")
+| where name has_any ("SecurityRoleAssigned", "SecurityRoleRevoked")
 | order by timestamp desc
 | take 5
 ```

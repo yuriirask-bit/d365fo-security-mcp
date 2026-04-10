@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `summary_only` parameter on `get_user_security_profile` — returns an agent-friendly compact response with counts and top-level roles, omitting the full duty/privilege hierarchy
 - `exclude_service_accounts` parameter on most user-scanning tools — Provider-based native detection filters out service and system accounts from results
 
+### Performance
+
+- Optimised `get_security_change_log` KQL query: move timestamp filter before name filter to leverage time-series partitioning, use `has_any` instead of `in` for faster term-index lookups, and extend `customDimensions` once as `cd` alias to avoid repeated parsing
+
 ### Fixed
 
 - `redact_pii` parameter now supported on `get_all_user_role_assignments`, `get_org_security_map`, and `get_security_change_log` (previously missing)
@@ -27,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `get_role_duty_tree` — role hierarchy with sub-role resolution and optional SoD conflict annotations per duty
   - `get_all_user_role_assignments` — complete user-role assignment matrix with status filtering
   - `get_org_security_map` — legal entity scoped access map showing which users can operate in which organisations
-  - `get_security_change_log` — role assignment changes via DatabaseLogs entity (requires D365 Database Logging)
+  - `get_security_change_log` — role assignment changes via App Insights custom events (requires `SMCPSecurityRoleEventHandler` X++ class and App Insights configuration)
   - `find_dormant_privileged_accounts` — dual-source login data (D365 + Microsoft Graph) with configurable dormancy threshold
   - `run_user_access_review` — quarterly compliance access review list with SoD violation flags
   - `get_security_health_score` — aggregate 0–100 security posture score across 4 dimensions with plain-English recommendations
@@ -90,4 +94,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Duty breakdown reflects D365 OData data model: duties and privileges are flat lists, not nested hierarchies
 - Graph provider SKU-to-tier mapping covers common SKUs; custom/uncommon SKUs logged as warnings
 
-[0.1.0]: https://github.com/yuriirask-bit/d365fo-security-mcp/releases/tag/v0.1.0
+[0.1.0]: https://github.com/yuriirask-bit/SMCP/releases/tag/v0.1.0
